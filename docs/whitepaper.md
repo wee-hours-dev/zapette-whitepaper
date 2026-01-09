@@ -61,5 +61,7 @@ $$
 3. **冷却 (Cooldown)**: 一定時間、評価の反映を保留し、詳細な監査キューへ送る。
 
 ---
-© 2026 Tsukasa "FlyingHog" Koizumi, WEE HOURS Intelligence.
-LICENSE: [Creative Commons Attribution-ShareAlike 4.0 International Public License](LICENSE)
+© 2026 Tsukasa "FlyingHog" Koizumi, WEE HOURS Intelligence.  
+LICENSE: [Creative Commons Attribution-ShareAlike 4.0 International Public License](https://creativecommons.org/licenses/by-sa/4.0/deed.ja)
+
+[← 戻る](../README.md)

@@ -247,5 +247,8 @@ ZAPETTEで扱うコンテンツ（長文記事、書籍、論文）を深く理�
 ---
 *This document is a technical specification for DEAIAS engine.*
 
-© 2026 Tsukasa "FlyingHog" Koizumi, WEE HOURS Intelligence.
-LICENSE: [Creative Commons Attribution-ShareAlike 4.0 International Public License](LICENSE)
+© 2026 Tsukasa "FlyingHog" Koizumi, WEE HOURS Intelligence.  
+LICENSE: [Creative Commons Attribution-ShareAlike 4.0 International Public License](https://creativecommons.org/licenses/by-sa/4.0/deed.ja)
+
+
+[← 戻る](../README.md)
