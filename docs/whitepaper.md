@@ -59,3 +59,7 @@ $$
 1. **除外**: スコア計算から完全に排除する。
 2. **減衰**: 寄与度を著しく低く見積もる（例: $0.1$倍）。
 3. **冷却 (Cooldown)**: 一定時間、評価の反映を保留し、詳細な監査キューへ送る。
+
+---
+© 2026 Tsukasa "FlyingHog" Koizumi, WEE HOURS Intelligence.
+LICENSE: [Creative Commons Attribution-ShareAlike 4.0 International Public License](LICENSE)

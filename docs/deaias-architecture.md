@@ -170,4 +170,82 @@ DEAIASでは、Moderatorエージェントに対して以下の**フェーズ進
 *   必要であれば、ユーザーへの「次アクションの提案」も含めて出力します。
 
 ---
+## 7. 知識の空白期間を補完する補助知識モデル (Knowledge Bridge)
+
+商用モデルAPIはカットオフ以降の知識が空白となっており、最新情報・知識の取得には多くのリソースを割かなければならない。
+DEAIASでは、知識鮮度と自律性を維持するため、ローカルLLM継続学習パイプラインによる補助知識モデルを持たせます。
+オープンウェイトモデルのみで構成される「学習するエコシステム」を構築することにより、商用APIのリサーチ・リソースを使用せずに、高い鮮度の情報・知識の提供を可能にします。
+
+
+### 7.1 Triple Model Lineage (3系統の血統)
+特定の役割に固定するのではなく、**全モデルが「汎用能力」を持ちつつ、得意分野に「重み」を持つ**構成とします。これにより、単一モデルがダウンしてもシステム全体が機能する冗長性を確保します。
+
+1.  **Llama Line** (General Weighted): マルチモーダル・総合力に重み。
+2.  **Phi Line** (Logic Weighted): 数学・論理推論・コード生成に重み。
+3.  **Gemma Line** (Creativity Weighted): 表現力・多様な視点に重み。
+
+### 7.2 評議的学習サイクル (Council-based Synthesis)
+単一の教師モデルではなく、**3つのモデルが評議・協調して生成した「最高品質の合成データ」**を用いて、次世代の学習を行います。
+
+*   **Synthesis (Collaborative Teacher)**: 
+    *   収集した最新情報に対し、3モデルが議論(Deliberation)を行い、事実確認と多角的視点を含んだQ&Aデータセットを作成します。
+    *   単一モデルのバイアスを排除し、"Ground Truth"に近い品質を担保します。
+*   **Training (Distillation)**: 
+    *   生成された高品質データを、次週のモデル（Student）が学習(QLoRA)。
+*   **Update**: 週次でモデルを更新。
+
+## 8. 思考艦隊 (Thinking Fleet) 方式
+
+既存のLLMは、多くのコンテキストを一度に扱う能力が乏しく、コンテキスト・ウィンドウの不十分さが、「思考停止」「忘却」「幻覚」の要因となっています。
+DEAIASでは、大きなコンテキストを単一のウィンドウに詰め込むことをせず、「思考艦隊（Thinking Fleet）」方式の並列分散処理により、これらの問題を解決します。
+
+### 8.1 処理フロー (Map-Reduce)
+
+1.  **Semantic Chunking**:
+    *   入力を意味のある単位（章、関数、トピック）に分割。
+    *   依存関係（前提知識）と共にパッケージ化。
+2.  **Fleet Execution**:
+    *   分割されたチャンクを、複数のエージェント（Worker）が非同期・並列で処理。
+    *   各エージェントは**「North Star Prompt（全体目的）」**を常に参照し、迷子になるのを防ぐ。
+3.  **Consolidation**:
+    *   各Workerの成果物を、Master Agentが統合。
+    *   論理的整合性をチェックし、一つの回答に編み上げる。
+
+この仕組みにより、コンテキストのサイズにかかわらず、信頼性の高い回答を生成することが可能となります。
+
+## 9. 開発ロードマップ (Development Roadmap)
+
+ZAPETTE/Sidekickの事業ニーズと技術的依存関係に基づき、以下の順序で実装を進めます。
+
+### Phase 1: The Core (Council & Router)
+**「評議による品質担保と、UXのための即応性確保」**
+ZAPETTEのコア価値である「記事品質の評価」と、Sidekickの「対話体験」を最優先で確立します。
+
+1.  **評議システム (Council System)**
+    *   **Priority: Highest**
+    *   **Why**: ZAPETTEの「客観的品質スコアリング」の中核機能であり、全てのサービスの基盤となるため。
+2.  **適応的認知ルーティング (Adaptive Routing)**
+    *   **Priority: High**
+    *   **Why**: 評議システムによるレイテンシ増大を防ぎ、Sidekickのユーザー体験（即応性）を維持するため、早期の実装が不可欠。
+
+### Phase 2: The Scale (Thinking Fleet)
+**「長文コンテキスト対応と処理能力の拡大」**
+ZAPETTEで扱うコンテンツ（長文記事、書籍、論文）を深く理解するための機能を実装します。
+
+3.  **思考艦隊 (Thinking Fleet)**
+    *   **Priority: Medium**
+    *   **Why**: トークン制限を超えた本格的なコンテンツ分析に必要。技術的難易度が高いため、Core基盤安定後に着手する。
+
+### Phase 3: The Autonomy (Knowledge Bridge)
+**「完全な自律性とエコシステムの確立」**
+サービス運用が軌道に乗った段階で、外部依存を脱却し、ランニングコストと知識鮮度を最適化します。
+
+4.  **知識架橋 (Knowledge Bridge)**
+    *   **Priority: Strategic**
+    *   **Why**: 初期は商用APIで代用可能。インフラ構築コストが重いため、資金調達後・成長フェーズで投入し、コスト構造改革と知識の独立性を実現する。
+
+---
 *This document is a technical specification for DEAIAS engine.*
+
+© 2026 Tsukasa "FlyingHog" Koizumi, WEE HOURS Intelligence.
+LICENSE: [Creative Commons Attribution-ShareAlike 4.0 International Public License](LICENSE)
