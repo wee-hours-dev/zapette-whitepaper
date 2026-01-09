@@ -29,5 +29,7 @@
 | **`sidekick-mindy`** | **Mindy** | **最強の幼女/相棒**<br>『Kick-Ass』のHit-Girl（Mindy Macready）。未熟なヒーロー（ユーザー）を圧倒的な実力で影から支え、導くバックエンド・ロジックの頼もしさを表現しています。 |
 
 ---
-© 2026 Tsukasa "FlyingHog" Koizumi, WEE HOURS Intelligence.
+© 2026 Tsukasa "FlyingHog" Koizumi, WEE HOURS Intelligence.  
 LICENSE: [Creative Commons Attribution-ShareAlike 4.0 International Public License](https://creativecommons.org/licenses/by-sa/4.0/deed.ja)
+
+[← 戻る](../README.md)
