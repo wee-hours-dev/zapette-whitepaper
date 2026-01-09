@@ -73,7 +73,7 @@ DEAIASは以下のサービスを通じて、社会の知性をアップデー�
 | **2026.Q4** | **Official Launch** | ・**サービスの正式ローンチ**<br>・収益化および分配の開始<br>・マーケティングの本格化 |
 | **2027~** | **Expansion** | ・**Thinking Fleet (思考艦隊)** 実装<br>・エンターテインメント機能 (AI人狼等) の拡充<br>・拡張記憶 (Extended Memory) による自律学習検証 |
 
-* **フィードバック**: 本リポジトリの [Issue](https://github.com/wee-hours-dev/zapette-whitepaper/issues) にて、コンセプトへの意見を広く募集しています。
+* **フィードバック**: コンセプトへの意見や修正提案は、[貢献ガイドライン (CONTRIBUTING)](CONTRIBUTING.md) を一読の上、[Issues](https://github.com/wee-hours-dev/zapette-whitepaper/issues) にてお寄せください。
 
 ## 8. プロジェクト構成
 
@@ -81,8 +81,7 @@ DEAIASは以下のサービスを通じて、社会の知性をアップデー�
 
 ## 9. ライセンス
 
-* **ドキュメント (Manifesto/Whitepaper)**: [Creative Commons Attribution-ShareAlike 4.0 International Public License](https://creativecommons.org/licenses/by-sa/4.0/deed.ja)
-* **ソースコード (MVP/Sample)**: Apache License 2.0 (予定)
+* **ドキュメント (Manifesto/Whitepaper)**: [Creative Commons Attribution-ShareAlike 4.0 International Public License](LICENSE)
 
 ---
 © 2026 Tsukasa "FlyingHog" Koizumi, WEE HOURS Intelligence.

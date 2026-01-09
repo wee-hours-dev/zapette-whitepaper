@@ -60,6 +60,6 @@ Sidekickは単体で完結しません。
 
 ---
 © 2026 Tsukasa "FlyingHog" Koizumi, WEE HOURS Intelligence.  
-LICENSE: [Creative Commons Attribution-ShareAlike 4.0 International Public License](https://creativecommons.org/licenses/by-sa/4.0/deed.ja)
+LICENSE: [Creative Commons Attribution-ShareAlike 4.0 International Public License](../LICENSE)
 
 [← 戻る](../README.md)
